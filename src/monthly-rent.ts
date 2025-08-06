@@ -1,13 +1,9 @@
 import type {IPropertyData, ITenant} from "./types";
-import getCsvData from "../data/get-csv-data";
-import path from "path";
+import tenantData from "../data/tenantData";
 
 const pencePerPound = 100;
 
 const getMonthlyRentPerTenant = (property: IPropertyData, format: "pounds" | "pence" = "pounds") => {
-    const tenantDataPath = path.join(__dirname, "../data/tenants.csv");
-    const tenantData = getCsvData<ITenant>(tenantDataPath);
-
     const tenantCount = tenantData.filter((tenant: ITenant) => tenant.propertyId === property.id).length;
 
     if (tenantCount < 1) {

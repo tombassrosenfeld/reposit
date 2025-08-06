@@ -1,11 +1,6 @@
 import getMonthlyRentPerTenant from "../src/monthly-rent";
 import {IPropertyData} from "../src/types";
-import getCsvData from "../data/get-csv-data";
-import path from "path";
-
-// Get the absolute path to the data directory
-const propertyDataPath = path.join(__dirname, '../data/properties.csv');
-const propertyData = getCsvData<IPropertyData>(propertyDataPath, ['monthlyRentPence', 'capacity']);
+import propertyData from "../data/property-data";
 
 describe("getMonthlyRentPerTenant", () => {
     it('calculate the rent per tenant for a property in pounds', () => {

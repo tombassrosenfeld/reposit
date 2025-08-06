@@ -1,11 +1,7 @@
 import getRegionalAverageRent from '../src/regional-rent';
-import type { IPropertyData } from "../src/types";
-import getCsvData from "../data/get-csv-data";
-import path from "path";
+import propertyData from "../data/property-data";
 
-// Get the absolute path to the data directory
-const propertyDataPath = path.join(__dirname, '../data/properties.csv');
-const propertyData = getCsvData<IPropertyData>(propertyDataPath, ['monthlyRentPence', 'capacity']);
+
 
 describe('getRegionalAverageRent', () => {
     it('should calculate the average rent for the Welsh region', () => {
