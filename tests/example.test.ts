@@ -1,14 +1,14 @@
 // Example test file with TypeScript
 import { test, expect } from '@jest/globals';
+import {getRegionalAverageRent} from "../src/regional-rent";
 
 describe('Example Test Suite', () => {
   // Example function with TypeScript types
-  function sum(a: number, b: number): number {
-    return a + b;
-  }
+
 
   test('adds 1 + 2 to equal 3', () => {
-    expect(sum(1, 2)).toBe(3);
+    const region =  getRegionalAverageRent('brom')
+    expect(region).toBe('brom');
   });
 
   // Example of testing async code
