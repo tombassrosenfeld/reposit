@@ -1,34 +1,13 @@
-import fs from "fs";
-import {parse} from "csv-parse";
+import { PropertyData } from "./types";
 
-interface PropertyData {
-    id: string;
-    address: string;
-    postcode: string;
-    monthlyRentPence: number;
-    region: string;
-    capacity: string;
-    tenancyEndDate: string;
-}
+const getRegionalAverageRent = (region: string, propertyData: PropertyData[]): number => {
+    const regionalProperties = propertyData.filter(prop => prop.region === region);
 
-const getPropertyData = (): PropertyData[] => {
-    const result: PropertyData[] = [];
+    const totalRent = regionalProperties.reduce(
+        (sum: number, property: PropertyData) => sum + property.monthlyRentPence, 0
+    );
+    
+    return Number((totalRent / regionalProperties.length).toFixed(2));
+};
 
-    fs.createReadStream("../data/properties.csv")
-        .pipe(parse())
-        .on("data", (data) => {
-            result.push(data);
-        })
-        .on("end", () => {
-            console.log(result);
-        });
-    return result;
-}
-
-getPropertyData();
-
-export const getRegionalAverageRent = (region: string) => {
-
-    console.log(getPropertyData());
-    return region;
-}
+export default getRegionalAverageRent;
