@@ -17,15 +17,11 @@ Run `npm run test` to run the test suite.
 
 I realise that there are some missing unit tests for some of my data utility functions. Given the time I have for this I focussed on testing the functions that meet the brief. Given more time I would rectify that.
 
-
-
 *The brief:*
 
 You have been given two files of comma separated values, a list of properties and a list of tenants associated with those properties:
 
 Your task is to write code that meets the requirements outlined below.
-
-
 
 Guidelines
 
