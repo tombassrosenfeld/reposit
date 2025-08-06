@@ -1,5 +1,5 @@
 import type {IPropertyData, ITenant} from "./types";
-import tenantData from "../data/tenantData";
+import tenantData from "../data/tenant-data";
 
 const pencePerPound = 100;
 
