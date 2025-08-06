@@ -1,13 +1,14 @@
-import { PropertyData } from "./types";
+import {PropertyData, TRegion} from "./types";
 
-const getRegionalAverageRent = (region: string, propertyData: PropertyData[]): number => {
+const getRegionalAverageRent = (region: TRegion, propertyData: PropertyData[]): number => {
     const regionalProperties = propertyData.filter(prop => prop.region === region);
 
     const totalRent = regionalProperties.reduce(
         (sum: number, property: PropertyData) => sum + property.monthlyRentPence, 0
     );
-    
-    return Number((totalRent / regionalProperties.length).toFixed(2));
+
+    // I made the assumption that fractions of pennies are probably not useful data here
+    return Math.round((totalRent / regionalProperties.length));
 };
 
 export default getRegionalAverageRent;
