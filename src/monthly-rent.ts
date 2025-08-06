@@ -1,10 +1,10 @@
-import type {IPropertyData, ITenant} from "./types";
-import tenantData from "../data/tenant-data";
+import type {IPropertyData} from "./types";
+import {getTenantCount} from "../data/tenant-data";
 
 const pencePerPound = 100;
 
 const getMonthlyRentPerTenant = (property: IPropertyData, format: "pounds" | "pence" = "pounds") => {
-    const tenantCount = tenantData.filter((tenant: ITenant) => tenant.propertyId === property.id).length;
+    const tenantCount = getTenantCount(property.id);
 
     if (tenantCount < 1) {
         throw new Error(`No tenants found for property ${property.id}`);
