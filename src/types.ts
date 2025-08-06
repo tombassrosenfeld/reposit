@@ -1,6 +1,6 @@
-export type TRegion = 'N.IRELAND' | 'WALES' | 'ENGLAND' | 'SCOTLAND'
+export type TRegion = 'N.IRELAND' | 'WALES' | 'ENGLAND' | 'SCOTLAND';
 
-export interface PropertyData {
+export interface IPropertyData {
     id: string;
     address: string;
     postcode: string;
@@ -8,4 +8,10 @@ export interface PropertyData {
     region: TRegion;
     capacity: number;
     tenancyEndDate: string;
+}
+
+export interface ITenant {
+    id: string;
+    propertyId: IPropertyData["id"];
+    name: string;
 }
