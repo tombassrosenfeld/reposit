@@ -1,6 +1,7 @@
 **Reposit Tech test**
 
 *Approach*
+
 I have opted for a basic barebones ts project as I only really need to create and test functions in order to satisfy the brief.
 I used Windsurf to scaffold the project, including the installation and setup of TypeScript and Jest. From that point I wrote the code unassisted by AI. I feel this will give you a more accurate representation of where I am technically.
 
